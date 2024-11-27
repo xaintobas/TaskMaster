@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Master</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="auth-container">
+      <div class="auth-card">
+        <h1>Task Master</h1>
+        <div class="auth-tabs">
+          <span class="tab active" data-tab="login">Login</span>
+          <span class="tab" data-tab="signup">Signup</span>
+        </div>
+
+        <form id="signup-form" class="hidden">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="fullName" placeholder="Full Name" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              id="signupEmail"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              id="signupPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="dashboard" class="hidden">
+      <header>
+        <div class="welcome-text">
+          Welcome, <span id="userName">User</span>!
+        </div>
+        <button id="logoutBtn" class="btn-secondary">Logout</button>
+      </header>
+
+      <div class="task-form-container">
+        <form id="taskForm">
+          <div class="form-group">
+            <label>Task Title</label>
+            <input
+              type="text"
+              id="taskTitle"
+              placeholder="Task Title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Task Description</label>
+            <textarea
+              id="taskDescription"
+              placeholder="Task Description"
+              required
+            ></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Task Priority</label>
+              <select id="taskPriority" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Task Deadline</label>
+              <input type="date" id="taskDeadline" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Add Task</button>
+        </form>
+      </div>
+
+      <div class="task-filters">
+        <div class="search-box">
+          <input type="text" id="searchTasks" placeholder="Search Tasks..." />
+        </div>
+        <div class="filter-group">
+          <select id="priorityFilter">
+            <option value="">Filter by Priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <select id="dateFilter">
+            <option value="">Filter by Due Date</option>
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tasks-container">
+        <h2>All Tasks</h2>
+        <table id="tasksTable">
+          <thead>
+            <tr>
+              <th>Task Id</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Due Date</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tasksList"></tbody>
+        </table>
+        <div class="pagination">
+          <button id="prevPage">Previous</button>
+          <div id="pageNumbers"></div>
+          <button id="nextPage">Next</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/auth.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/ui.js"></script>
+  </body>
+</html>
